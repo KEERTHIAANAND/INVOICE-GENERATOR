@@ -2,44 +2,69 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="/Invoice Generator/style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INVOICE GENERATOR</title>
+    <link rel="stylesheet" href="/Invoice Generator/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVOICE GENERATOR</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="bg">
-  <h1 style="text-align: center;">Purchase Details</h1>
+    <br>
+    <h1 style="text-align: center;">Purchase Details</h1>
 
-  <div class="form">
-    <form>
-      <table>
-        <tr>
-          <td align="right">Name:</td>
-          <td align="left"><input type="text" name="name" required /></td>
-        </tr>
-        <tr>
-          <td align="right">Item:</td>
-          <td align="left"><input type="text" name="item" required/></td>
-        </tr>
-        <tr>
-          <td align="right">Quantity:</td>
-          <td align="left"><input type="number" name="qty" required/></td>
-        </tr>
-        <tr>
-          <td align="right">Price:</td>
-          <td align="left"><input type="text" name="price" required/></td>
-        </tr>
-        <tr>
-          <td align="right">Tax Rate:</td>
-          <td align="left"><input type="number" name="tax" required/></td>
-        </tr>
-      </table><br>
-      <input type="submit">
-    </form>
-  </div>
-
-
+    <div class="form">
+        <form>
+            <table>
+                <tr>
+                    <td align="right">Name:</td>
+                    <td align="left"><input type="text" name="name" required /></td>
+                </tr>
+                <tr>
+                    <td align="right">Item:</td>
+                    <td align="left"><input type="text" name="item" required /></td>
+                </tr>
+                <tr>
+                    <td align="right">Quantity:</td>
+                    <td align="left"><input type="number" name="qty" required /></td>
+                </tr>
+                <tr>
+                    <td align="right">Price:</td>
+                    <td align="left"><input type="text" name="price" required /></td>
+                </tr>
+                <tr>
+                    <td align="right">Tax Rate:</td>
+                    <td align="left"><input type="number" name="tax" required /></td>
+                </tr>
+            </table><br>
+            <input type="submit">
+        </form>
+    </div><br><br><br>
+    <div>
+        <h1 style="text-align: center;">INVOICE</h1>
+        <table border="1" style="margin: 0 auto; border: 1px solid black;">
+            <tr>
+                <th>Name</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Tax Rate</th>
+            </tr>
+            <tr>
+                <td>Keerthi</td>
+                <td>MILK</td>
+                <td>250</td>
+                <td>200</td>
+                <td>5%</td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
