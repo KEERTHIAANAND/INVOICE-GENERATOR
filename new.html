@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <link href="/GIT/INVOICE-GENERATOR/nstyle.css" rel="stylesheet" >
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="bg">
+    <div class="head">
+        <h1>Kalaivanni Textiles</h1>
+    </div>
+
+    <div class="backg">
+    <br>
+    <h1 style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Purchase Details</h1>
+    <div>
+        <form>
+            <table class="form">
+                <thead>
+                    <tr>
+                        <td align="right">Name:</td>
+                        <td align="left"><input type="text" id="cname" name="cname" required /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Item:</td>
+                        <td align="left"><input type="text" id="item" name="item" required /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Quantity:</td>
+                        <td align="left"><input type="number" id="quantity" name="quantity" required /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Price:</td>
+                        <td align="left"><input type="number" id="price" name="price" required /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Tax Rate (%):</td>
+                        <td align="left"><input type="number" id="tax" name="tax" required /></td>
+                    </tr>
+                    <tr id="btna">
+                        <td colspan="2"><button type="button" id="btn" onclick="AddRow()">Submit</button></td>
+                    </tr>
+                </thead>
+            </table><br>
+        </form>
+    </div><br><br><br>
+    </div>
+    <div>
+        <h1 class="invoc">Invoice</h1>
+        <table border="1" id="show">
+            <tr>
+                <th>Name</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Tax Rate</th>
+                <th>Total</th>
+            </tr>
+        </table>
+    </div>
+    <div class="print">
+        <button onclick="window.print()">Print</button>
+    </div>
+
+
+    <script src="/GIT/INVOICE-GENERATOR/nscript.js"></script>
+</body>
+
+</html>
