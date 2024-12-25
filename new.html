@@ -5,12 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Generator</title>
-    <link href="/GIT/INVOICE-GENERATOR/nstyle.css" rel="stylesheet" >
     <style>
         table {
             border-collapse: collapse;
             width: 50%;
             text-align: center;
+        }
+
+        .bg {
+            background-color: antiquewhite;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .head {
+            text-align: left;
+            background: url('/GIT/INVOICE-GENERATOR/photos/header\ image.png') no-repeat center center;
+            background-size: cover;
+            height: 200px;
+            padding: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .form {
+            background-color: rgb(132, 158, 167);
+
+            width: 250px;
+            padding: 20px;
+            margin: 0 auto;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px black;
+            border-style: unset;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .print {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .backg {
+            background-image: url('/GIT/INVOICE-GENERATOR/photos/bg.avif');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .invoc {
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: black
+        }
+
+        #show {
+            margin: 0 auto;
+            border-color: black;
+
+            background-image: url('/GIT/INVOICE-GENERATOR/photos/invoice\ bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-style: solid;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
     </style>
 </head>
@@ -21,39 +91,40 @@
     </div>
 
     <div class="backg">
-    <br>
-    <h1 style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Purchase Details</h1>
-    <div>
-        <form>
-            <table class="form">
-                <thead>
-                    <tr>
-                        <td align="right">Name:</td>
-                        <td align="left"><input type="text" id="cname" name="cname" required /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Item:</td>
-                        <td align="left"><input type="text" id="item" name="item" required /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Quantity:</td>
-                        <td align="left"><input type="number" id="quantity" name="quantity" required /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Price:</td>
-                        <td align="left"><input type="number" id="price" name="price" required /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Tax Rate (%):</td>
-                        <td align="left"><input type="number" id="tax" name="tax" required /></td>
-                    </tr>
-                    <tr id="btna">
-                        <td colspan="2"><button type="button" id="btn" onclick="AddRow()">Submit</button></td>
-                    </tr>
-                </thead>
-            </table><br>
-        </form>
-    </div><br><br><br>
+        <br>
+        <h1 style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Purchase Details
+        </h1>
+        <div>
+            <form>
+                <table class="form">
+                    <thead>
+                        <tr>
+                            <td align="right">Name:</td>
+                            <td align="left"><input type="text" id="cname" name="cname" required /></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Item:</td>
+                            <td align="left"><input type="text" id="item" name="item" required /></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Quantity:</td>
+                            <td align="left"><input type="number" id="quantity" name="quantity" required /></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Price:</td>
+                            <td align="left"><input type="number" id="price" name="price" required /></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Tax Rate (%):</td>
+                            <td align="left"><input type="number" id="tax" name="tax" required /></td>
+                        </tr>
+                        <tr id="btna">
+                            <td colspan="2"><button type="button" id="btn" onclick="AddRow()">Submit</button></td>
+                        </tr>
+                    </thead>
+                </table><br>
+            </form>
+        </div><br><br><br>
     </div>
     <div>
         <h1 class="invoc">Invoice</h1>
@@ -73,7 +144,42 @@
     </div>
 
 
-    <script src="/GIT/INVOICE-GENERATOR/nscript.js"></script>
+    <script>
+        function AddRow() {
+            var cname = document.getElementById("cname").value;
+            var item = document.getElementById("item").value;
+            var quantity = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+            var tax = document.getElementById("tax").value;
+
+            if (cname && item && quantity && price && tax) {
+                var table = document.getElementById("show");
+                var row = table.insertRow(-1);
+
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+
+                cell1.innerHTML = cname;
+                cell2.innerHTML = item;
+                cell3.innerHTML = quantity;
+                cell4.innerHTML = price;
+                cell5.innerHTML = tax;
+                cell6.innerHTML = (quantity * price * (1 + tax / 100)).toFixed(2);
+
+                document.getElementById("cname").value = "";
+                document.getElementById("item").value = "";
+                document.getElementById("quantity").value = "";
+                document.getElementById("price").value = "";
+                document.getElementById("tax").value = "";
+            } else {
+                alert("Please fill all fields");
+            }
+        }
+    </script>
 </body>
 
 </html>
